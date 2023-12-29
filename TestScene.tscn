@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://cqmcx0hg4y21v"]
 
-[ext_resource type="Texture2D" uid="uid://chlnt56mtnfqo" path="res://parallax_background_layer_6.png" id="1_er8t8"]
 [ext_resource type="Script" path="res://SceneManager.cs" id="1_s78y7"]
-[ext_resource type="Texture2D" uid="uid://6r0yoxgn80ir" path="res://main_tileset.png" id="1_uru3g"]
-[ext_resource type="Texture2D" uid="uid://cwxl33xxbtg3r" path="res://building_01.png" id="2_4jefx"]
+[ext_resource type="Texture2D" uid="uid://cwxl33xxbtg3r" path="res://assets/building_01.png" id="2_4jefx"]
 [ext_resource type="PackedScene" uid="uid://hpbx14ma8p0v" path="res://player.tscn" id="2_yb0ig"]
-[ext_resource type="Texture2D" uid="uid://tnonfplskpfd" path="res://building_03.png" id="3_6hor7"]
-[ext_resource type="Texture2D" uid="uid://cg5nd8583ee0n" path="res://building_05.png" id="4_7waq4"]
+[ext_resource type="Texture2D" uid="uid://chlnt56mtnfqo" path="res://assets/parallax_background_layer_6.png" id="3_eh5ff"]
+[ext_resource type="Texture2D" uid="uid://tnonfplskpfd" path="res://assets/building_03.png" id="5_u5m17"]
+[ext_resource type="Texture2D" uid="uid://cg5nd8583ee0n" path="res://assets/building_05.png" id="6_r25r6"]
+[ext_resource type="Texture2D" uid="uid://6r0yoxgn80ir" path="res://assets/main_tileset.png" id="7_c6jmy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bfysl"]
-texture = ExtResource("1_uru3g")
+texture = ExtResource("7_c6jmy")
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
@@ -342,7 +342,7 @@ playerScene = ExtResource("2_yb0ig")
 [node name="ParallaxBackgroundLayer6" type="Sprite2D" parent="."]
 position = Vector2(576.778, 323)
 scale = Vector2(2.25694, 2.25694)
-texture = ExtResource("1_er8t8")
+texture = ExtResource("3_eh5ff")
 
 [node name="Building01" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -354,13 +354,13 @@ texture = ExtResource("2_4jefx")
 texture_filter = 1
 position = Vector2(865, 342.375)
 scale = Vector2(2.32031, 2.32031)
-texture = ExtResource("3_6hor7")
+texture = ExtResource("5_u5m17")
 
 [node name="Building05" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(578, 292)
 scale = Vector2(2.07813, 2.07813)
-texture = ExtResource("4_7waq4")
+texture = ExtResource("6_r25r6")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_smboo")
