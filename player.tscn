@@ -56,7 +56,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qv0kn"]
-size = Vector2(29, 38)
+size = Vector2(13, 17)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_kklho"]
 properties/0/path = NodePath(".:syncPos")
@@ -69,36 +69,37 @@ properties/1/sync = true
 properties/1/watch = false
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+texture_filter = 1
+collision_layer = 2
 script = ExtResource("1_nsa6s")
 Bullet = ExtResource("2_opmpl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-0.5, -14.5)
-scale = Vector2(2.09375, 2.09375)
+position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_h7wyx")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_qv0kn")
 
 [node name="GunRotation" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="GunRotation"]
 texture_filter = 1
-position = Vector2(41, 1)
-scale = Vector2(0.411458, 0.411458)
+position = Vector2(16, 0)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("3_6x4gq")
 
 [node name="BulletSpawn" type="Node2D" parent="GunRotation"]
-position = Vector2(61, -1)
+position = Vector2(21, -1)
 
 [node name="Name Label" type="Label" parent="."]
 offset_left = -15.0
 offset_top = -40.0
 offset_right = 25.0
 offset_bottom = -14.0
-text = "test"
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_interval = 0.05
@@ -106,3 +107,4 @@ delta_interval = 0.05
 replication_config = SubResource("SceneReplicationConfig_kklho")
 
 [node name="Camera" type="Camera2D" parent="."]
+rotation_smoothing_enabled = true

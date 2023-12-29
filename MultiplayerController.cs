@@ -80,7 +80,7 @@ public partial class MultiplayerController : Control
   public void _on_host_button_down()
   {
     peer = new ENetMultiplayerPeer();
-    var error = peer.CreateServer(PORT, 4);
+    var error = peer.CreateServer(PORT, 2);
 
     if (error != Error.Ok)
     {
@@ -121,7 +121,7 @@ public partial class MultiplayerController : Control
       GD.Print(item.Name + " is playing");
     }
 
-    var scene = ResourceLoader.Load<PackedScene>("res://TestScene.tscn").Instantiate<Node2D>();
+    var scene = ResourceLoader.Load<PackedScene>("res://Tiles.tscn").Instantiate<Node2D>();
     GetTree().Root.AddChild(scene);
     this.Hide();
   }

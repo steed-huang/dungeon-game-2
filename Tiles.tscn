@@ -55,9 +55,12 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8syxy")
 
 [node name="Node2D" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_eme12")
+playerScene = ExtResource("3_swkdv")
 
 [node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
 tile_set = SubResource("TileSet_3w542")
 format = 2
 layer_0/name = "Floor"
@@ -73,10 +76,12 @@ layer_1/tile_data = PackedInt32Array(524288, 0, 3, 327680, 65536, 2, 262144, 655
 [node name="PlayerSpawnPoints" type="Node2D" parent="."]
 
 [node name="0" type="Node2D" parent="PlayerSpawnPoints" groups=["PlayerSpawnPoints"]]
-position = Vector2(40, 64)
+position = Vector2(48, 64)
 
 [node name="1" type="Node2D" parent="PlayerSpawnPoints" groups=["PlayerSpawnPoints"]]
 position = Vector2(200, 64)
 
-[node name="Player" parent="." instance=ExtResource("3_swkdv")]
-position = Vector2(112, 104)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]

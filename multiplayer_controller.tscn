@@ -13,41 +13,41 @@ script = ExtResource("1_dcwpi")
 
 [node name="Host" type="Button" parent="."]
 layout_mode = 0
-offset_left = 67.0
-offset_top = 164.0
-offset_right = 251.0
-offset_bottom = 220.0
+offset_left = 38.0
+offset_top = 107.0
+offset_right = 121.0
+offset_bottom = 138.0
 text = "Host"
 
 [node name="Join" type="Button" parent="."]
 layout_mode = 0
-offset_left = 317.0
-offset_top = 164.0
-offset_right = 501.0
-offset_bottom = 220.0
+offset_left = 139.0
+offset_top = 107.0
+offset_right = 224.0
+offset_bottom = 139.0
 text = "Join"
 
 [node name="Start Game" type="Button" parent="."]
 layout_mode = 0
-offset_left = 560.0
-offset_top = 164.0
-offset_right = 744.0
-offset_bottom = 220.0
+offset_left = 33.0
+offset_top = 168.0
+offset_right = 262.0
+offset_bottom = 199.0
 text = "Start Game"
 
 [node name="Name Input" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 73.0
-offset_right = 520.0
-offset_bottom = 114.0
+offset_left = 84.0
+offset_top = 40.0
+offset_right = 314.0
+offset_bottom = 71.0
 
 [node name="Name Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 67.0
-offset_top = 79.0
-offset_right = 114.0
-offset_bottom = 105.0
+offset_left = 29.0
+offset_top = 41.0
+offset_right = 76.0
+offset_bottom = 67.0
 text = "Name"
 
 [connection signal="button_down" from="Host" to="." method="_on_host_button_down"]
