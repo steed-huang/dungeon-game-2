@@ -13,21 +13,23 @@ public partial class Player : CharacterBody2D
 
   public override void _Ready()
   {
-    // set current player as multiplayer authority
+    //  current player as multiplayer authority
     // Name == player id
     GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(int.Parse(Name));
   }
 
   public override void _PhysicsProcess(double delta)
   {
-    // only move player if this is not the local player
+    // only move player if this is the local player
     if (GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").GetMultiplayerAuthority() == Multiplayer.GetUniqueId())
     {
+      GetNode<Camera2D>("Camera").MakeCurrent(); // attatch camera to local player
 
       Vector2 velocity = Velocity;
 
-      // gun
-      GetNode<Node2D>("GunRotation").LookAt(GetViewport().GetMousePosition());
+      // gun rotation
+      Vector2 localMousePos = ToLocal(GetGlobalMousePosition()); // local position of the mouse relative to the player
+      GetNode<Node2D>("GunRotation").LookAt(localMousePos + Position);
 
       if (Input.IsActionJustPressed("fire"))
       {
