@@ -88,12 +88,11 @@ shape = SubResource("RectangleShape2D_qv0kn")
 
 [node name="Sprite2D" type="Sprite2D" parent="GunRotation"]
 texture_filter = 1
-position = Vector2(16, 0)
+position = Vector2(14, 0)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("3_6x4gq")
 
 [node name="BulletSpawn" type="Node2D" parent="GunRotation"]
-position = Vector2(21, -1)
 
 [node name="Name Label" type="Label" parent="."]
 offset_left = -15.0
