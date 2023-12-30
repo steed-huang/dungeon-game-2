@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnuplukgokvr6"]
+
+[ext_resource type="Script" path="res://Weapon.cs" id="1_6a3ep"]
+[ext_resource type="Texture2D" uid="uid://dr57grvdtrn5n" path="res://assets/Famas.png" id="1_a5usc"]
+[ext_resource type="PackedScene" uid="uid://cmds8qnu8xeo1" path="res://bullet.tscn" id="2_yej6p"]
+
+[node name="Weapon" type="Node2D" node_paths=PackedStringArray("fireTimer")]
+script = ExtResource("1_6a3ep")
+fireTimer = NodePath("Fire Timer")
+bullet = ExtResource("2_yej6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.6)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_a5usc")
+
+[node name="Bullet Spawn" type="Node2D" parent="."]
+position = Vector2(7, 0)
+
+[node name="Fire Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="Fire Timer" to="." method="_on_fire_timer_timeout"]

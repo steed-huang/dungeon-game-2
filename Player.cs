@@ -8,15 +8,8 @@ public partial class Player : CharacterBody2D
   private const float acceleration = 0.25f;
   private const float friction = 0.2f;
 
-  // firing logic will be moved into weapon eventually
-  private float fireRate = 0.2f;
-  private bool canFire = true;
-
   [Export]
-  private Timer fireTimer;
-
-  [Export]
-  public PackedScene Bullet;
+  private Weapon weapon;
 
   private Vector2 syncPos = new Vector2(0, 0);
   private float syncRotation = 0;
@@ -26,9 +19,6 @@ public partial class Player : CharacterBody2D
     //  current player as multiplayer authority
     // Name == player id
     GetNode<MultiplayerSynchronizer>("MultiplayerSynchronizer").SetMultiplayerAuthority(int.Parse(Name));
-
-    fireTimer.WaitTime = fireRate;
-    fireTimer.OneShot = true;
   }
 
   public override void _PhysicsProcess(double delta)
@@ -44,11 +34,9 @@ public partial class Player : CharacterBody2D
       Vector2 localMousePos = ToLocal(GetGlobalMousePosition()); // local position of the mouse relative to the player
       GetNode<Node2D>("GunRotation").LookAt(localMousePos + Position);
 
-      if (Input.IsActionPressed("fire") && canFire)
+      if (Input.IsActionPressed("fire"))
       {
-        Rpc(nameof(Fire));
-        canFire = false;
-        fireTimer.Start();
+        weapon.handleFire(GetNode<Node2D>("GunRotation").RotationDegrees);
       }
 
       // Get the input direction and handle the movement/deceleration.
@@ -76,20 +64,6 @@ public partial class Player : CharacterBody2D
       GlobalPosition = GlobalPosition.Lerp(syncPos, .2f);
       GetNode<Node2D>("GunRotation").RotationDegrees = Mathf.Lerp(GetNode<Node2D>("GunRotation").RotationDegrees, syncRotation, .2f);
     }
-  }
-
-  private void _on_fire_timer_timeout()
-  {
-    canFire = true;
-  }
-
-  [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
-  private void Fire()
-  {
-    Node2D b = Bullet.Instantiate<Node2D>();
-    b.RotationDegrees = GetNode<Node2D>("GunRotation").RotationDegrees;
-    b.GlobalPosition = GetNode<Node2D>("GunRotation/BulletSpawn").GlobalPosition;
-    GetTree().Root.AddChild(b);
   }
 
 
