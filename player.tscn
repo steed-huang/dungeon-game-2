@@ -55,7 +55,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qv0kn"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_830ws"]
 size = Vector2(13, 17)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_kklho"]
@@ -82,7 +82,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_qv0kn")
+shape = SubResource("RectangleShape2D_830ws")
 
 [node name="GunRotation" type="Node2D" parent="."]
 

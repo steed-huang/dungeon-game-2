@@ -36,7 +36,7 @@ public partial class Player : CharacterBody2D
 
       if (Input.IsActionJustPressed("fire"))
       {
-        Rpc(nameof(fire));
+        Rpc(nameof(Fire));
       }
 
       // Get the input direction and handle the movement/deceleration.
@@ -67,7 +67,7 @@ public partial class Player : CharacterBody2D
   }
 
   [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
-  private void fire()
+  private void Fire()
   {
     Node2D b = Bullet.Instantiate<Node2D>();
     b.RotationDegrees = GetNode<Node2D>("GunRotation").RotationDegrees;

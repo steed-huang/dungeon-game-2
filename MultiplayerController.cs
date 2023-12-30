@@ -59,7 +59,7 @@ public partial class MultiplayerController : Control
     GD.Print("CONNECTED TO SERVER");
 
     // host handles sending information
-    RpcId(1, nameof(sendPlayerInformation), GetNode<LineEdit>("Name Input").Text, Multiplayer.GetUniqueId());
+    RpcId(1, nameof(SendPlayerInformation), GetNode<LineEdit>("Name Input").Text, Multiplayer.GetUniqueId());
   }
 
   /// <summary>
@@ -94,7 +94,7 @@ public partial class MultiplayerController : Control
     GD.Print("Waiting For Players...");
 
     // register host as player
-    sendPlayerInformation(GetNode<LineEdit>("Name Input").Text, 1);
+    SendPlayerInformation(GetNode<LineEdit>("Name Input").Text, 1);
   }
 
   public void _on_join_button_down()
@@ -127,7 +127,7 @@ public partial class MultiplayerController : Control
   }
 
   [Rpc(MultiplayerApi.RpcMode.AnyPeer)]
-  private void sendPlayerInformation(string name, int id)
+  private void SendPlayerInformation(string name, int id)
   {
     PlayerInfo playerInfo = new PlayerInfo()
     {
@@ -144,7 +144,7 @@ public partial class MultiplayerController : Control
     {
       foreach (var item in GameManager.Players)
       {
-        Rpc(nameof(sendPlayerInformation), item.Name, item.Id);
+        Rpc(nameof(SendPlayerInformation), item.Name, item.Id);
       }
     }
   }
