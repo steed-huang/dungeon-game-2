@@ -68,10 +68,11 @@ properties/1/spawn = true
 properties/1/sync = true
 properties/1/watch = false
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("fireTimer") groups=["Player"]]
 texture_filter = 1
 collision_layer = 2
 script = ExtResource("1_nsa6s")
+fireTimer = NodePath("Fire Timer")
 Bullet = ExtResource("2_opmpl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -100,10 +101,15 @@ offset_top = -40.0
 offset_right = 25.0
 offset_bottom = -14.0
 
+[node name="Fire Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="Camera" type="Camera2D" parent="."]
+rotation_smoothing_enabled = true
+
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_interval = 0.05
 delta_interval = 0.05
 replication_config = SubResource("SceneReplicationConfig_kklho")
 
-[node name="Camera" type="Camera2D" parent="."]
-rotation_smoothing_enabled = true
+[connection signal="timeout" from="Fire Timer" to="." method="_on_fire_timer_timeout"]
