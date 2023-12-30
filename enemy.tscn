@@ -6,14 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://c7vsfrnl1pgql" path="res://hitbox_component.tscn" id="3_pwk6n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ife7v"]
-radius = 16.0
-height = 32.0
+radius = 8.0
+height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8jnev"]
 size = Vector2(32, 32)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_kjgao")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -27,8 +28,8 @@ shape = SubResource("CapsuleShape2D_ife7v")
 maxHealth = 100.0
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("3_pwk6n")]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 16
+collision_mask = 8
 healthComponent = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
