@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bkyfvgfnf6wj8" path="res://assets/icon.svg" id="1_bejml"]
 [ext_resource type="Script" path="res://Enemy.cs" id="1_kjgao"]
-[ext_resource type="PackedScene" uid="uid://da58w43oa3thi" path="res://health_component.tscn" id="2_3jrn7"]
 [ext_resource type="PackedScene" uid="uid://c7vsfrnl1pgql" path="res://hitbox_component.tscn" id="3_pwk6n"]
+[ext_resource type="PackedScene" uid="uid://c32mgtf774dlv" path="res://healthbar.tscn" id="5_2y4ob"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ife7v"]
 radius = 8.0
@@ -21,16 +21,20 @@ script = ExtResource("1_kjgao")
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_bejml")
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ife7v")
 
-[node name="HealthComponent" parent="." instance=ExtResource("2_3jrn7")]
+[node name="Healthbar" parent="." instance=ExtResource("5_2y4ob")]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = -20.0
 maxHealth = 100.0
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("3_pwk6n")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("healthBar") instance=ExtResource("3_pwk6n")]
 collision_layer = 16
 collision_mask = 8
-healthComponent = NodePath("../HealthComponent")
+healthBar = NodePath("../Healthbar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("RectangleShape2D_8jnev")

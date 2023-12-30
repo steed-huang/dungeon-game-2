@@ -5,7 +5,7 @@ public partial class HitboxComponent : Area2D
 {
 
   [Export]
-  private HealthComponent healthComponent;
+  private Healthbar healthBar;
 
   public override void _Ready()
   {
@@ -17,6 +17,6 @@ public partial class HitboxComponent : Area2D
 
   public void Damage(Attack attack)
   {
-    healthComponent?.Damage(attack);
+    healthBar?.Damage(attack);
   }
 }

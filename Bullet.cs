@@ -6,7 +6,7 @@ public partial class Bullet : CharacterBody2D
   public const float Speed = 500.0f;
   private Vector2 direction = new Vector2();
 
-  private const float attackDamage = 50.0f;
+  private const float attackDamage = 10.0f;
   private const float knockbackForce = 100.0f;
 
   public override void _Ready()
@@ -30,7 +30,6 @@ public partial class Bullet : CharacterBody2D
 
   private void _on_area_2d_area_entered(Area2D area)
   {
-    GD.Print("test");
     if (area is HitboxComponent component)
     {
       Attack a = new Attack

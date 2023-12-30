@@ -90,3 +90,6 @@ visible = false
 
 [node name="Enemy" parent="." instance=ExtResource("4_2312m")]
 position = Vector2(112, 264)
+
+[node name="Player" parent="." instance=ExtResource("3_swkdv")]
+position = Vector2(304, 184)
