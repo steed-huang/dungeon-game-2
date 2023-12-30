@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Bullet.cs" id="1_j8ifc"]
 [ext_resource type="Texture2D" uid="uid://bwdhh2uojkhpl" path="res://assets/bullet.png" id="2_cnw0q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfeud"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpw8t"]
 size = Vector2(4, 4)
 
 [node name="Bullet" type="CharacterBody2D"]
@@ -16,9 +16,11 @@ texture = ExtResource("2_cnw0q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)
-shape = SubResource("RectangleShape2D_gfeud")
+shape = SubResource("RectangleShape2D_cpw8t")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

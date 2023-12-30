@@ -15,9 +15,14 @@ public partial class Bullet : CharacterBody2D
   {
     Vector2 velocity = Velocity;
     velocity = Speed * direction;
-
     Velocity = velocity;
-    MoveAndSlide();
+
+    KinematicCollision2D collisionResult = MoveAndCollide(Velocity * (float)delta);
+
+    if (collisionResult is not null)
+    {
+      QueueFree();
+    }
   }
 
   private void _on_timer_timeout()
