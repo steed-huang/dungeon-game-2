@@ -71,8 +71,6 @@ public partial class MultiplayerController : Control
     GD.Print("CONNECTION FAILED");
   }
 
-  // Called every frame. 'delta' is the elapsed time since the previous frame.
-
   public override void _Process(double delta)
   {
   }

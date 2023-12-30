@@ -13,8 +13,7 @@ public partial class Bullet : CharacterBody2D
 
   public override void _PhysicsProcess(double delta)
   {
-    Vector2 velocity = Velocity;
-    velocity = Speed * direction;
+    Vector2 velocity = Speed * direction;
     Velocity = velocity;
 
     KinematicCollision2D collisionResult = MoveAndCollide(Velocity * (float)delta);

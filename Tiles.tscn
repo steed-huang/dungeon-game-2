@@ -88,8 +88,8 @@ visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
 
-[node name="Player" parent="." instance=ExtResource("3_swkdv")]
-position = Vector2(320, 184)
-
 [node name="Enemy" parent="." instance=ExtResource("4_2312m")]
 position = Vector2(112, 264)
+
+[node name="Player" parent="." instance=ExtResource("3_swkdv")]
+position = Vector2(312, 184)
