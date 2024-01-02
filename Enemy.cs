@@ -7,9 +7,9 @@ public partial class Enemy : CharacterBody2D
 
   public override void _PhysicsProcess(double delta)
   {
-    Vector2 velocity = Velocity;
-    Velocity = velocity;
+	Vector2 velocity = Velocity;
+	Velocity = velocity;
 
-    MoveAndSlide();
+	MoveAndSlide();
   }
 }

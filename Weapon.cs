@@ -14,8 +14,8 @@ public partial class Weapon : Node2D
 
   public override void _Ready()
   {
-    fireTimer.WaitTime = fireRate;
-    fireTimer.OneShot = true;
+	fireTimer.WaitTime = fireRate;
+	fireTimer.OneShot = true;
   }
 
   public override void _Process(double delta)
@@ -24,23 +24,23 @@ public partial class Weapon : Node2D
 
   private void _on_fire_timer_timeout()
   {
-    canFire = true;
+	canFire = true;
   }
 
   public void handleFire(float GunRotationDegrees)
   {
-    if (!canFire) return;
-    Rpc(nameof(Fire), GunRotationDegrees);
-    canFire = false;
-    fireTimer.Start();
+	if (!canFire) return;
+	Rpc(nameof(Fire), GunRotationDegrees);
+	canFire = false;
+	fireTimer.Start();
   }
 
   [Rpc(MultiplayerApi.RpcMode.AnyPeer, CallLocal = true)]
   private void Fire(float GunRotationDegrees)
   {
-    Node2D b = bullet.Instantiate<Node2D>();
-    b.RotationDegrees = GunRotationDegrees;
-    b.GlobalPosition = GetNode<Node2D>("Bullet Spawn").GlobalPosition;
-    GetTree().Root.AddChild(b);
+	Node2D b = bullet.Instantiate<Node2D>();
+	b.RotationDegrees = GunRotationDegrees;
+	b.GlobalPosition = GetNode<Node2D>("Bullet Spawn").GlobalPosition;
+	GetTree().Root.AddChild(b);
   }
 }

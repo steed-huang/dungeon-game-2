@@ -17,6 +17,6 @@ public partial class HitboxComponent : Area2D
 
   public void Damage(Attack attack)
   {
-    healthBar?.Damage(attack);
+	healthBar?.Damage(attack);
   }
 }

@@ -73,7 +73,7 @@ layer_1/tile_data = PackedInt32Array(327680, 65536, 2, 262144, 65536, 2, 196608,
 [node name="PlayerSpawnPoints" type="Node2D" parent="."]
 
 [node name="0" type="Node2D" parent="PlayerSpawnPoints" groups=["PlayerSpawnPoints"]]
-position = Vector2(152, 176)
+position = Vector2(151, 176)
 
 [node name="1" type="Node2D" parent="PlayerSpawnPoints" groups=["PlayerSpawnPoints"]]
 position = Vector2(472, 176)
@@ -84,7 +84,7 @@ visible = false
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
 
 [node name="Enemy" parent="." instance=ExtResource("4_2312m")]
-position = Vector2(112, 264)
+position = Vector2(22, 348)
 
 [node name="Player" parent="." instance=ExtResource("3_swkdv")]
-position = Vector2(304, 184)
+position = Vector2(311, 165)
