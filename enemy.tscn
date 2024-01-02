@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6uobhmmacn1c"]
+[gd_scene load_steps=10 format=3 uid="uid://b6uobhmmacn1c"]
 
 [ext_resource type="Texture2D" uid="uid://bkyfvgfnf6wj8" path="res://assets/icon.svg" id="1_bejml"]
 [ext_resource type="Script" path="res://Enemy.cs" id="1_kjgao"]
 [ext_resource type="PackedScene" uid="uid://c7vsfrnl1pgql" path="res://hitbox_component.tscn" id="3_pwk6n"]
 [ext_resource type="PackedScene" uid="uid://c32mgtf774dlv" path="res://healthbar.tscn" id="5_2y4ob"]
+[ext_resource type="Script" path="res://Scripts/State.gd" id="5_dv5tn"]
+[ext_resource type="Script" path="res://State Machine.gd" id="6_i8ymw"]
+[ext_resource type="Script" path="res://Scripts/enemyIdle.gd" id="7_yyo2j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ife7v"]
 radius = 8.0
@@ -38,3 +41,12 @@ healthBar = NodePath("../Healthbar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("RectangleShape2D_8jnev")
+script = ExtResource("5_dv5tn")
+
+[node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("6_i8ymw")
+initial_state = NodePath("EnemyIdle")
+
+[node name="EnemyIdle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("7_yyo2j")
+enemy = NodePath("../..")
